@@ -1,0 +1,2 @@
+# huffcreate
+Huffman code creation

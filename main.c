@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 #include "defines.h"
 #include "huffman.h"
@@ -183,7 +184,7 @@ write_data(FILE *fp, HuffmanCode *hfcode, int len)
             hfcode[i].codeword);
 
     for(k = hfcode[i].length, n = 1; k > 0; k--, n++)
-      fprintf(stdout, "%i",
+      fprintf(stdout, "%li",
               ((hfcode[i].codeword) & (((int)1 << k)-1)) >> (k-1));
 
     fprintf(fp, ") %f\n", hfcode[i].rle.prob);
@@ -235,7 +236,7 @@ write_data(FILE *fp, HuffmanCode *hfcode, int len)
 	  knownIndices[i] = 1;
 	  if(i && (i % 5) == 0)
 	    fprintf(fp, "\n");
-	  fprintf(fp, "{%3i,%3i,%6i}, ", hfcode[j].rle.size, hfcode[j].length, hfcode[j].codeword);
+	  fprintf(fp, "{%3i,%3i,%6li}, ", hfcode[j].rle.size, hfcode[j].length, hfcode[j].codeword);
 	  break;
 	}
       }

@@ -196,7 +196,7 @@ Inorder_Tree_Walk(BinTreeHead *pH, HuffmanCode *hfword)
          */
         if((*hftemp).length > 32)
         {
-          fprintf(stderr, "codeword length too long %i\n");
+          fprintf(stderr, "codeword length too long (%i)\n", (*hftemp).length);
           exit(EXIT_FAILURE);
         }
 

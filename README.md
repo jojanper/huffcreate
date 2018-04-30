@@ -5,6 +5,7 @@
 
 ### Prerequisites
 
+- CMake
 - gcc
 
 ---------

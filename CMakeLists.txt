@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 2.8.9)
+cmake_minimum_required(VERSION 3.5)
 set(APP huffcreate)
 project(huffman)
 
@@ -8,11 +8,16 @@ if(CMAKE_COMPILER_IS_GNUCXX)
   set(CMAKE_C_FLAGS_RELEASE "-O3")
 endif(CMAKE_COMPILER_IS_GNUCXX)
 
-set(SRC
+add_library(huf_library OBJECT
   bintree.c
   list.c
   huffman.c
+)
+add_library(huffman::library ALIAS huf_library)
+
+set(SRC
   main.c
+  $<TARGET_OBJECTS:huffman::library>
 )
 
 add_executable(${APP} ${SRC})
